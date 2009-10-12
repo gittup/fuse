@@ -1,0 +1,36 @@
+ifeq (@(FUSE_FS),y)
+include_rules
+
+CFLAGS += -DFUSERMOUNT_DIR=\"/bin\"
+CFLAGS += -DFUSE_USE_VERSION=26
+CFLAGS += -D_FILE_OFFSET_BITS=64
+CFLAGS += -D_REENTRANT
+CFLAGS += -Wall
+CFLAGS += -W
+CFLAGS += -Wno-sign-compare
+CFLAGS += -Wstrict-prototypes
+CFLAGS += -Wmissing-declarations
+CFLAGS += -Wwrite-strings
+CFLAGS += -fno-strict-aliasing
+CFLAGS += -fPIC
+CFLAGS += -DPIC
+CFLAGS += -I$(GITTUP_ROOT)/uClibc/libpthread/linuxthreads.old/
+
+srcs += fuse.c
+srcs += fuse_kern_chan.c
+srcs += fuse_loop.c
+srcs += fuse_loop_mt.c
+srcs += fuse_lowlevel.c
+srcs += fuse_mt.c
+srcs += fuse_opt.c
+srcs += fuse_session.c
+srcs += fuse_signals.c
+srcs += helper.c
+srcs += modules/subdir.c
+#srcs += modules/iconv.c
+srcs += mount.c
+srcs += mount_util.c
+
+: foreach $(srcs) |> !cc |> %B.o
+
+endif

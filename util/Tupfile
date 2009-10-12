@@ -1,0 +1,17 @@
+ifeq (@(FUSE_FS),y)
+include_rules
+
+CFLAGS += -Wall
+CFLAGS += -W
+CFLAGS += -Wno-sign-compare
+CFLAGS += -Wstrict-prototypes
+CFLAGS += -Wmissing-declarations
+CFLAGS += -Wwrite-strings
+CFLAGS += -fno-strict-aliasing
+CFLAGS += -I../lib
+
+srcs += fusermount.c
+
+: foreach $(srcs) |> !cc |> %B.o
+
+endif

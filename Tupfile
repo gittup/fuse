@@ -1,0 +1,6 @@
+ifeq (@(FUSE_FS),y)
+include_rules
+
+: lib/*.o |> !ar |> libfuse.a
+: util/fusermount.o lib/mount_util.o |> !ld |> fusermount
+endif
