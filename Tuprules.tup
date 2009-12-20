@@ -1,1 +1,2 @@
 CFLAGS += -I$(TUP_CWD)/include
+CFLAGS += -DFUSE_USE_VERSION=26

@@ -2,7 +2,6 @@ ifeq (@(FUSE_FS),y)
 include_rules
 
 CFLAGS += -DFUSERMOUNT_DIR=\"/bin\"
-CFLAGS += -DFUSE_USE_VERSION=26
 CFLAGS += -D_FILE_OFFSET_BITS=64
 CFLAGS += -D_REENTRANT
 CFLAGS += -Wall
@@ -14,7 +13,7 @@ CFLAGS += -Wwrite-strings
 CFLAGS += -fno-strict-aliasing
 CFLAGS += -fPIC
 CFLAGS += -DPIC
-CFLAGS += -I$(GITTUP_ROOT)/uClibc/libpthread/linuxthreads.old/
+CFLAGS += -I$(GITTUP_ROOT)/uClibc/libpthread/linuxthreads.old
 
 srcs += fuse.c
 srcs += fuse_kern_chan.c
