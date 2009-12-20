@@ -264,6 +264,10 @@ static struct fuse *fuse_setup_common(int argc, char *argv[],
 	if (fuse == NULL)
 		goto err_unmount;
 
+	/* MARF: sshfs looks like it works, but then hangs when you try to
+	 * ls a directory unless foreground is set. Dunno why.
+	 */
+	foreground = 1;
 	res = fuse_daemonize(foreground);
 	if (res == -1)
 		goto err_unmount;
