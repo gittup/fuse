@@ -53,7 +53,7 @@
 #define ICONV_CONST 
 
 /* Don't update /etc/mtab */
-/* #undef IGNORE_MTAB */
+#define IGNORE_MTAB 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
